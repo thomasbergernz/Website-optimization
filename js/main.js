@@ -449,11 +449,14 @@ var resizePizzas = function(size) {
   }
 
   // Iterates through pizza elements on the page and changes their widths
+  // No need to use getElementsByClassName live list // using static list
+  // moved var applicable to all elements out of loop
   function changePizzaSizes(size) {
-    for (var i = 0; i < document.querySelectorAll(".randomPizzaContainer").length; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+	var containers = document.querySelectorAll(".randomPizzaContainer");
+	var dx = determineDx(containers[0], size);
+	var newwidth = (containers[0].offsetWidth + dx) + 'px';
+    for (var i = 0; i < containers.length; i++) {
+      containers[i].style.width = newwidth;
     }
   }
 
@@ -503,13 +506,12 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 // local function to achieve batch update of all sliding pizzas
   function calculator(){
-	var items = document.getElementsByClassName('mover');
-	var cached = (document.body.scrollTop / 1250);
+	var items = document.querySelectorAll('.mover'); // static list
+	var cached = (document.body.scrollTop / 1250); //moved out of the loop
 	for (var i = 0; i < items.length; i++) {
 	  var item = items[i];
-	  var basicLeft = item.basicLeft;
 	  var phase = Math.sin(cached + (i % 5));
-	  item.style.transform = 'translateX(' + (basicLeft -1000 + (100 * phase)) + 'px)';
+	  item.style.transform = 'translateX(' + (item.basicLeft -1000 + (100 * phase)) + 'px)';
 	  //item.style.left = basicLeft + 100 * phase + 'px';
   	}
   }

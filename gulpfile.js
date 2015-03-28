@@ -16,7 +16,7 @@ gulp.task('default', function() {
   .pipe(gulp.dest('dist/css'));
 });
 
-gulp.task('minify-HTML', function() {
+gulp.task('html', ['scripts'], function() {
 	var opts = {
 	conditionals: true,
 	spare:true
@@ -26,7 +26,7 @@ gulp.task('minify-HTML', function() {
   .pipe(gulp.dest('dist/html'));
 });
 
-gulp.task('scripts', ['minihtml'], ['default'], function() {
+gulp.task('scripts', ['default'], function() {
   return gulp.src('js/*.js')
   .pipe(uglify())
   .pipe(gulp.dest('dist/js'));
