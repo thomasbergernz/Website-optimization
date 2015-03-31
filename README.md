@@ -1,7 +1,11 @@
 ## Website Performance Optimization Project
 
-The performance optimization was done using <a href="https://developers.google.com/speed/pagespeed/insights/">Google PageSpeed Insights</a> tips. Minification and compression of assets like CSS, JS, HTML and images was done using <a href="http://gulpjs.com">Gulp</a>.
+The performance optimization was done using <a href="https://developers.google.com/speed/pagespeed/insights/">Google PageSpeed Insights</a> tips. 
+
+Minification and compression of assets like CSS, JS, HTML and images was done using <a href="http://gulpjs.com">Gulp</a>.
+
 The optimized pages are hosted here: <a href="http://thomasbergernz.github.io/Website-optimization/index.html">http://thomasbergernz.github.io/Website-optimization/index.html</a>
+
 The non-production files are in the <a href="https://github.com/thomasbergernz/Website-optimization/tree/master">master branch.</a>
 
 ### views/main.js
